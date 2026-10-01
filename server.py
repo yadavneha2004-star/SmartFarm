@@ -29,11 +29,11 @@ except Exception:
     pass
 
 # Services
-from services.weather_service import get_seasonal_weather, get_weather_data
-from services.market_service import get_market_prices, get_best_market, get_market_intelligence
-from services.pest_service import detect_pest_risk
-from services.location_service import analyze_regional_suitability
-from services.schemes_service import get_all_schemes
+from weather_service import get_seasonal_weather, get_weather_data
+from market_service import get_market_prices, get_best_market, get_market_intelligence
+from pest_service import detect_pest_risk
+from location_service import analyze_regional_suitability
+from schemes_service import get_all_schemes
 
 app = Flask(__name__)
 CORS(app)
