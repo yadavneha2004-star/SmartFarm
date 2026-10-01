@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import tensorflow as tf
+#import tensorflow as tf
 import numpy as np
 from PIL import Image, ImageOps, UnidentifiedImageError
 from werkzeug.exceptions import HTTPException
@@ -20,13 +20,13 @@ os.environ["OMP_NUM_THREADS"] = "1"
 os.environ["TF_NUM_INTRAOP_THREADS"] = "1"
 os.environ["TF_NUM_INTEROP_THREADS"] = "1"
 
-try:
-    import tensorflow as tf
-    tf.config.threading.set_intra_op_parallelism_threads(1)
-    tf.config.threading.set_inter_op_parallelism_threads(1)
-    tf.config.set_visible_devices([], 'GPU') # Force CPU to save driver overhead
-except Exception:
-    pass
+#try:
+    #import tensorflow as tf
+    #tf.config.threading.set_intra_op_parallelism_threads(1)
+    #tf.config.threading.set_inter_op_parallelism_threads(1)
+    #tf.config.set_visible_devices([], 'GPU') # Force CPU to save driver overhead
+#except Exception:
+    #pass
 
 # Services
 from weather_service import get_seasonal_weather, get_weather_data
@@ -64,9 +64,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 logger.info("Current working directory: %s", os.getcwd())
 logger.info("Backend base directory: %s", BASE_DIR)
 
-SOIL_MODEL_PATH = os.path.join(BASE_DIR, "models", "soil_model.h5")
-PLANT_MODEL_PATH = os.path.join(BASE_DIR, "models", "plant_model.keras")
-CROP_MODEL_PATH = os.path.join(BASE_DIR, "models", "crop_model.pkl")
+# SOIL_MODEL_PATH = os.path.join(BASE_DIR, "models", "soil_model.h5")
+# PLANT_MODEL_PATH = os.path.join(BASE_DIR, "models", "plant_model.keras")
+# CROP_MODEL_PATH = os.path.join(BASE_DIR, "models", "crop_model.pkl")
 
 SOIL_LABELS_PATH = os.path.join(BASE_DIR, "models", "soil_labels.txt")
 PLANT_LABELS_PATH = os.path.join(BASE_DIR, "models", "plant_labels.txt")
@@ -221,7 +221,8 @@ def _release_image_models_except(active_model_name):
     if released:
         logger.info("Released TensorFlow model(s) to save memory: %s", ", ".join(released))
         try:
-            tf.keras.backend.clear_session()
+            #tf.keras.backend.clear_session()
+            pass
         except Exception:
             pass
         gc.collect()
@@ -238,16 +239,19 @@ def _load_model(model_name):
             _release_image_models_except("soil")
             _validate_file(SOIL_MODEL_PATH, "Soil model")
             logger.info("Loading soil model from %s", SOIL_MODEL_PATH)
-            models["soil"] = tf.keras.models.load_model(SOIL_MODEL_PATH, compile=False)
+            #models["soil"] = tf.keras.models.load_model(SOIL_MODEL_PATH, compile=False)
+        pass
         elif model_name == "plant":
             _release_image_models_except("plant")
             _validate_file(PLANT_MODEL_PATH, "Plant disease model")
             logger.info("Loading plant disease model from %s", PLANT_MODEL_PATH)
-            models["plant"] = tf.keras.models.load_model(PLANT_MODEL_PATH, compile=False)
+            #models["plant"] = tf.keras.models.load_model(PLANT_MODEL_PATH, compile=False)
+        pass
         elif model_name == "crop":
             _validate_file(CROP_MODEL_PATH, "Crop model")
             logger.info("Loading crop model from %s", CROP_MODEL_PATH)
-            models["crop"] = joblib.load(CROP_MODEL_PATH)
+            #models["crop"] = joblib.load(CROP_MODEL_PATH)
+        pass
         else:
             raise ValueError(f"Unknown model requested: {model_name}")
 
@@ -320,7 +324,7 @@ def _prediction_scores(raw_prediction):
         raise ValueError("Model returned an empty prediction.")
 
     if np.any(scores < 0) or not np.isclose(float(np.sum(scores)), 1.0, atol=1e-3):
-        scores = tf.nn.softmax(scores).numpy()
+        #scores = tf.nn.softmax(scores).numpy()
     return scores
 
 
