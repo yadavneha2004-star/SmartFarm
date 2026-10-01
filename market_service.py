@@ -6,7 +6,7 @@ import random
 from datetime import datetime
 
 # Services
-from services.price_forecast_service import predict_price_trend
+from price_forecast_service import predict_price_trend
 
 # API Configuration
 MARKET_API_KEY = os.getenv("MARKET_API_KEY", "579b464db66ec23bdd000001337b203720474dc54ffe3ce0c69fe62a")
