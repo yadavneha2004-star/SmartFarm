@@ -1,0 +1,12 @@
+flask
+flask-cors
+gunicorn
+tensorflow-cpu
+numpy
+pandas
+scikit-learn
+joblib
+pillow
+opencv-python-headless
+requests
+geopy
