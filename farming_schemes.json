@@ -1,0 +1,47 @@
+[
+  {
+    "name": "PM-KISAN",
+    "category": "Financial Support",
+    "description": "Direct income support for eligible farmer families across India.",
+    "benefits": "Rs 6,000 per year transferred in three installments.",
+    "eligibility": "Small and marginal farmer families meeting PM-KISAN rules.",
+    "target_farmer": "small",
+    "link": "https://pmkisan.gov.in/"
+  },
+  {
+    "name": "Pradhan Mantri Fasal Bima Yojana",
+    "category": "Insurance",
+    "description": "Crop insurance support against natural calamities, pests, and diseases.",
+    "benefits": "Low premium insurance cover with claim support during crop loss.",
+    "eligibility": "Farmers growing notified crops in notified areas.",
+    "target_farmer": "all",
+    "link": "https://pmfby.gov.in/"
+  },
+  {
+    "name": "PMKSY - Per Drop More Crop",
+    "category": "Irrigation & Infrastructure",
+    "description": "Support for micro-irrigation, water conservation, and efficient farm irrigation systems.",
+    "benefits": "Subsidy support for drip and sprinkler irrigation systems.",
+    "eligibility": "Farmers applying for approved irrigation improvements.",
+    "target_farmer": "all",
+    "link": "https://pmksy.gov.in/"
+  },
+  {
+    "name": "Kisan Credit Card",
+    "category": "Financial Support",
+    "description": "Short-term affordable institutional credit for crop production and allied activities.",
+    "benefits": "Working capital access with concessional interest support.",
+    "eligibility": "Farmers, dairy farmers, and fishers as per KCC guidelines.",
+    "target_farmer": "all",
+    "link": "https://www.myscheme.gov.in/schemes/kcc"
+  },
+  {
+    "name": "Soil Health Card",
+    "category": "Advisory Support",
+    "description": "Scientific soil testing and nutrient recommendations for balanced fertilizer use.",
+    "benefits": "Actionable soil nutrient guidance to improve yield and reduce input waste.",
+    "eligibility": "Available to farmers through local agriculture departments and labs.",
+    "target_farmer": "all",
+    "link": "https://www.soilhealth.dac.gov.in/"
+  }
+]
