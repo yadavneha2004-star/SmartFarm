@@ -393,7 +393,7 @@ def current_weather():
     if not data:
         return jsonify({"error": "No data"}), 400
 
-    from services.weather_service import get_weather_by_coords
+    from weather_service import get_weather_by_coords
 
     lat = data.get("lat")
     lon = data.get("lon")
