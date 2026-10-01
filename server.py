@@ -239,19 +239,19 @@ def _load_model(model_name):
             _release_image_models_except("soil")
             _validate_file(SOIL_MODEL_PATH, "Soil model")
             logger.info("Loading soil model from %s", SOIL_MODEL_PATH)
-            #models["soil"] = tf.keras.models.load_model(SOIL_MODEL_PATH, compile=False)
-        pass
+            # models["soil"] = tf.keras.models.load_model(SOIL_MODEL_PATH, compile=False)
+            pass
         elif model_name == "plant":
             _release_image_models_except("plant")
             _validate_file(PLANT_MODEL_PATH, "Plant disease model")
             logger.info("Loading plant disease model from %s", PLANT_MODEL_PATH)
-            #models["plant"] = tf.keras.models.load_model(PLANT_MODEL_PATH, compile=False)
-        pass
+            # models["plant"] = tf.keras.models.load_model(PLANT_MODEL_PATH, compile=False)
+            pass
         elif model_name == "crop":
             _validate_file(CROP_MODEL_PATH, "Crop model")
             logger.info("Loading crop model from %s", CROP_MODEL_PATH)
-            #models["crop"] = joblib.load(CROP_MODEL_PATH)
-        pass
+            # models["crop"] = joblib.load(CROP_MODEL_PATH)
+            pass
         else:
             raise ValueError(f"Unknown model requested: {model_name}")
 
