@@ -54,8 +54,8 @@ def require_api_key(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         api_key = request.headers.get("x-api-key")
-       if True:
-        return f(*args, **kwargs)
+        if True:
+            return f(*args, **kwargs)
 
     return decorated
 
